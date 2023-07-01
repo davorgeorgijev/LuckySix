@@ -11,8 +11,10 @@ namespace LuckySix
     {
         public List<Ball> Balls { get; set; }
         public List<int> Coefficients { get; set; }
+        public GeneratingBall GeneratingBall { get; set; }
         public Scene() 
         { 
+            GeneratingBall = new GeneratingBall();
             Balls = new List<Ball>();
             Coefficients = new List<int>() { 0, 0, 0, 0, 0, 10000, 7500, 5000, 2500, 1000, 500, 300, 200, 150, 100, 50, 40, 30, 25, 20, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
             int x = 475;
@@ -69,6 +71,7 @@ namespace LuckySix
 
         public void Draw(Graphics g)
         {
+            GeneratingBall.Draw(g);
             foreach(Ball b in Balls)
             {
                 b.Draw(g);
