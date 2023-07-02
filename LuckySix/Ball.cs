@@ -37,7 +37,14 @@ namespace LuckySix
             } 
             else if(LeftOrRight == "right")
             {
-                g.DrawString(Coefficient.ToString(), font, brushText, Center.X - 55, Center.Y-9);
+                if (Coefficient != 10)
+                {
+                    g.DrawString(Coefficient.ToString(), font, brushText, Center.X - 55, Center.Y - 9);
+                }
+                else
+                {
+                    g.DrawString(Coefficient.ToString(), font, brushText, Center.X - 65, Center.Y - 9);
+                }
             }
             brushText.Dispose();
 
@@ -51,7 +58,28 @@ namespace LuckySix
             }
             else
             {
-                //to do
+                g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
+
+                Brush brushBig = new SolidBrush(Color);
+                g.FillEllipse(brushBig, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
+                brushBig.Dispose();
+
+                Brush brushSmall = new SolidBrush(Color.White);
+                g.FillEllipse(brushSmall, Center.X - 10, Center.Y - 10, 10 * 2, 10 * 2);
+                brushSmall.Dispose();
+
+                FontFamily fontFamilySmall = new FontFamily("Arial");
+                Font fontSmall = new Font(fontFamilySmall, 10, FontStyle.Bold, GraphicsUnit.Pixel);
+                Brush brushTextSmall = new SolidBrush(Color.Black);
+                if(Number <= 9)
+                {
+                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X - 4, Center.Y - 6);
+                }
+                else
+                {
+                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X - 7, Center.Y - 6);
+                }
+                brushTextSmall.Dispose();
             }
             brush.Dispose();
             pen.Dispose();

@@ -14,6 +14,9 @@ namespace LuckySix
     {
         public List<int> Numbers { get; set; } = new List<int>();
         public Color Color { get; set; }
+        public int Bet { get; set; }
+        public bool ColorOrNumberPlayingAtm { get; set; } //true-numbers false-colors
+
         public PlaceBetForm()
         {
             InitializeComponent();
@@ -62,6 +65,7 @@ namespace LuckySix
         {
             if (playNumbersRb.Checked)
             {
+                ColorOrNumberPlayingAtm = true;
                 Numbers.Add(Int32.Parse(comboBox1.Text.ToString()));
                 Numbers.Add(Int32.Parse(comboBox2.Text.ToString()));
                 Numbers.Add(Int32.Parse(comboBox3.Text.ToString()));
@@ -79,6 +83,7 @@ namespace LuckySix
             }
             else if (playColorsRb.Checked)
             {
+                ColorOrNumberPlayingAtm = false;
                 if(comboBoxColor.Text == "None")
                 {
                     DialogResult = DialogResult.Cancel;
@@ -96,6 +101,7 @@ namespace LuckySix
                     DialogResult = DialogResult.OK;
                 }
             }
+            Bet = (int)betNud.Value;
         }
     }
 }

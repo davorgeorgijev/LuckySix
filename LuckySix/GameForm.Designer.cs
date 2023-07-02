@@ -28,9 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timerGeneratingBall = new System.Windows.Forms.Timer(this.components);
+            this.timerSufflingBalls = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // Form1
+            // timerGeneratingBall
+            // 
+            this.timerGeneratingBall.Interval = 1500;
+            this.timerGeneratingBall.Tick += new System.EventHandler(this.timerGeneratingBall_Tick);
+            // 
+            // timerSufflingBalls
+            // 
+            this.timerSufflingBalls.Interval = 50;
+            this.timerSufflingBalls.Tick += new System.EventHandler(this.timerSufflingBalls_Tick);
+            // 
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -39,7 +52,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "GameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LuckySix";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -49,6 +62,9 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timerGeneratingBall;
+        private System.Windows.Forms.Timer timerSufflingBalls;
     }
 }
 
