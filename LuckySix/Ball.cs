@@ -31,6 +31,7 @@ namespace LuckySix
             FontFamily fontFamily = new FontFamily("Arial");
             Font font = new Font(fontFamily, 16, FontStyle.Bold, GraphicsUnit.Pixel);
             Brush brushText = new SolidBrush(Color.White);
+
             if (LeftOrRight == "left")
             {
                 g.DrawString(Coefficient.ToString(), font, brushText, Center.X + 35, Center.Y-10);
@@ -50,6 +51,7 @@ namespace LuckySix
 
             Brush brush = new SolidBrush(Color.LightGray);
             Pen pen = new Pen(Color.White, 2);
+
             if (!IsSelected)
             {
                 
@@ -58,28 +60,33 @@ namespace LuckySix
             }
             else
             {
-                g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
-
                 Brush brushBig = new SolidBrush(Color);
-                g.FillEllipse(brushBig, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
-                brushBig.Dispose();
-
                 Brush brushSmall = new SolidBrush(Color.White);
-                g.FillEllipse(brushSmall, Center.X - 10, Center.Y - 10, 10 * 2, 10 * 2);
-                brushSmall.Dispose();
 
                 FontFamily fontFamilySmall = new FontFamily("Arial");
                 Font fontSmall = new Font(fontFamilySmall, 10, FontStyle.Bold, GraphicsUnit.Pixel);
                 Brush brushTextSmall = new SolidBrush(Color.Black);
+
+                StringFormat stringFormat = new StringFormat();
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Center;
+
+                g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
+                g.FillEllipse(brushBig, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
+                g.FillEllipse(brushSmall, Center.X - 10, Center.Y - 10, 10 * 2, 10 * 2);
+                
                 if(Number <= 9)
                 {
-                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X - 4, Center.Y - 6);
+                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X, Center.Y, stringFormat);
                 }
                 else
                 {
-                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X - 7, Center.Y - 6);
+                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X, Center.Y, stringFormat);
                 }
+
+                brushSmall.Dispose();
                 brushTextSmall.Dispose();
+                brushBig.Dispose();
             }
             brush.Dispose();
             pen.Dispose();

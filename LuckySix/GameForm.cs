@@ -45,7 +45,7 @@ namespace LuckySix
             else
             {
                 Environment.Exit(0);
-            }
+            }             
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +64,15 @@ namespace LuckySix
             {
                 timerGeneratingBall.Stop();
                 Invalidate();
-                string message = $"You won {CashWon}\nDo you want to play again?";
+                string message;
+                if(CashWon > 0)
+                {
+                    message = $"You won {CashWon} denars!\nDo you want to play again?";
+                }
+                else
+                {
+                    message = $"You did not won any money.\nDo you want to play again?";
+                }
                 DialogResult dialogResult = MessageBox.Show(message, "", MessageBoxButtons.OKCancel);
                 if (dialogResult == DialogResult.OK)
                 {
@@ -137,7 +145,7 @@ namespace LuckySix
             else if (number % 8 == 2) return Color.Green;
             else if (number % 8 == 3) return Color.Blue;
             else if (number % 8 == 4) return Color.Pink;
-            else if (number % 8 == 5) return Color.Brown;
+            else if (number % 8 == 5) return Color.Purple;
             else if (number % 8 == 6) return Color.Yellow;
             else if (number % 8 == 7) return Color.Orange;
             else return Color.Black; //if (number % 8 == 0)

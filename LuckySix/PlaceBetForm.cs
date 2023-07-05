@@ -94,7 +94,7 @@ namespace LuckySix
                     else if (comboBoxColor.Text == "Green") Color = Color.Green;
                     else if (comboBoxColor.Text == "Blue") Color = Color.Blue;
                     else if (comboBoxColor.Text == "Pink") Color = Color.Pink;
-                    else if (comboBoxColor.Text == "Brown") Color = Color.Brown;
+                    else if (comboBoxColor.Text == "Purple") Color = Color.Purple;
                     else if (comboBoxColor.Text == "Yellow") Color = Color.Yellow;
                     else if (comboBoxColor.Text == "Orange") Color = Color.Orange;
                     else if (comboBoxColor.Text == "Black") Color = Color.Black;
