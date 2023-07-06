@@ -22,11 +22,6 @@ namespace LuckySix
             InitializeComponent();
         }
 
-        private void PlaceBetForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void playNumbersRb_CheckedChanged(object sender, EventArgs e)
         {
             if(playNumbersRb.Checked == true)
@@ -65,6 +60,7 @@ namespace LuckySix
         {
             if (playNumbersRb.Checked)
             {
+                Numbers = new List<int>();
                 ColorOrNumberPlayingAtm = true;
                 Numbers.Add(Int32.Parse(comboBox1.Text.ToString()));
                 Numbers.Add(Int32.Parse(comboBox2.Text.ToString()));
@@ -74,7 +70,7 @@ namespace LuckySix
                 Numbers.Add(Int32.Parse(comboBox6.Text.ToString()));
                 if (Numbers.Contains(0) || Numbers.Distinct().Count() != 6)
                 {
-                    DialogResult = DialogResult.Cancel;
+                    MessageBox.Show("You have to enter different numbers!", "", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -86,7 +82,7 @@ namespace LuckySix
                 ColorOrNumberPlayingAtm = false;
                 if(comboBoxColor.Text == "None")
                 {
-                    DialogResult = DialogResult.Cancel;
+                    MessageBox.Show("You have to enter color!", "", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -103,5 +99,6 @@ namespace LuckySix
             }
             Bet = (int)betNud.Value;
         }
+
     }
 }

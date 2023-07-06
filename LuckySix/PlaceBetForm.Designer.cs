@@ -525,7 +525,6 @@
             this.Name = "PlaceBetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlaceBetForm";
-            this.Load += new System.EventHandler(this.PlaceBetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.betNud)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
