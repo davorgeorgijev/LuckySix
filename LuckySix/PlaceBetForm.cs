@@ -26,21 +26,17 @@ namespace LuckySix
         {
             if(playNumbersRb.Checked == true)
             {
-                comboBox1.Enabled = true;
-                comboBox2.Enabled = true;
-                comboBox3.Enabled = true;
-                comboBox4.Enabled = true;
-                comboBox5.Enabled = true;
-                comboBox6.Enabled = true;
+                foreach(ComboBox comboBox in new[] { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6 })
+                {
+                    comboBox.Enabled = true;
+                }
             }
             else
             {
-                comboBox1.Enabled = false;
-                comboBox2.Enabled = false;
-                comboBox3.Enabled = false;
-                comboBox4.Enabled = false;
-                comboBox5.Enabled = false;
-                comboBox6.Enabled = false;
+                foreach (ComboBox comboBox in new[] { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6 })
+                {
+                    comboBox.Enabled = false;
+                }
             }          
         }
 
@@ -74,19 +70,11 @@ namespace LuckySix
                 }
                 if (containsNonPositiveNumberValueFlag)
                 {
-                    MessageBox.Show("You have to enter only numbers!", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("You have to enter numbers!", "Error", MessageBoxButtons.OK);
                 }
-                else if (Numbers.Any(num => num < 0))
+                else if (Numbers.Any(num => num > 48) || Numbers.Any(num => num <= 0))
                 {
-                    MessageBox.Show("You have to enter only positive numbers!", "Error", MessageBoxButtons.OK);
-                }
-                else if (Numbers.Any(num => num > 48))
-                {
-                    MessageBox.Show("You have to enter only numbers in the range of 1 to 48!", "Error", MessageBoxButtons.OK);
-                }
-                else if (Numbers.Contains(0))
-                {
-                    MessageBox.Show("You have to enter numbers different than 0!", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("You have to enter numbers in the range of 1 to 48!", "Error", MessageBoxButtons.OK);
                 }
                 else if (Numbers.Distinct().Count() != 6)
                 {
@@ -102,23 +90,25 @@ namespace LuckySix
                 ColorOrNumberPlayingAtm = false;
                 if(comboBoxColor.Text == "")
                 {
-                    MessageBox.Show("You have to enter color!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("You have to select color!", "", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    if (comboBoxColor.Text == "Red") Color = Color.Red;
-                    else if (comboBoxColor.Text == "Green") Color = Color.Green;
-                    else if (comboBoxColor.Text == "Blue") Color = Color.Blue;
-                    else if (comboBoxColor.Text == "Pink") Color = Color.Pink;
-                    else if (comboBoxColor.Text == "Purple") Color = Color.Purple;
-                    else if (comboBoxColor.Text == "Yellow") Color = Color.Yellow;
-                    else if (comboBoxColor.Text == "Orange") Color = Color.Orange;
-                    else if (comboBoxColor.Text == "Black") Color = Color.Black;
+                    Color = Color.FromName(comboBoxColor.Text);
                     DialogResult = DialogResult.OK;
                 }
             }
             Bet = (int)betNud.Value;
         }
 
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            textBoxHelp.Visible = false;
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            textBoxHelp.Visible = true;
+        }
     }
 }

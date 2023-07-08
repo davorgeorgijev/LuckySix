@@ -11,8 +11,8 @@ namespace LuckySix
     {
         public Point Center { get; set; }
         public static int Radius { get; set; } = 25;
-        public Color Color { get; set; } //set in form
-        public int Number { get; set; } //set in form
+        public Color Color { get; set; } 
+        public int Number { get; set; } 
         public int Coefficient { get; set; }
         public bool IsSelected { get; set; }
         public string LeftOrRight { get; set; } //the ball is positioned left or right on the screen
@@ -28,44 +28,41 @@ namespace LuckySix
 
         public void Draw(Graphics g)
         {
-            FontFamily fontFamily = new FontFamily("Arial");
-            Font font = new Font(fontFamily, 16, FontStyle.Bold, GraphicsUnit.Pixel);
-            Brush brushText = new SolidBrush(Color.White);
+            //drawing coefficients
+
+            Font font = new Font(new FontFamily("Arial"), 16, FontStyle.Bold, GraphicsUnit.Pixel);
+            Brush brushTextBig = new SolidBrush(Color.White);
 
             if (LeftOrRight == "left")
             {
-                g.DrawString(Coefficient.ToString(), font, brushText, Center.X + 35, Center.Y-10);
+                g.DrawString(Coefficient.ToString(), font, brushTextBig, Center.X + 35, Center.Y - 10);
             } 
             else if(LeftOrRight == "right")
             {
-                if (Coefficient != 10)
-                {
-                    g.DrawString(Coefficient.ToString(), font, brushText, Center.X - 55, Center.Y - 9);
-                }
-                else
-                {
-                    g.DrawString(Coefficient.ToString(), font, brushText, Center.X - 65, Center.Y - 9);
-                }
+                g.DrawString(Coefficient.ToString(), font, brushTextBig, Center.X - 65, Center.Y - 9);
             }
-            brushText.Dispose();
+            brushTextBig.Dispose();
 
-            Brush brush = new SolidBrush(Color.LightGray);
-            Pen pen = new Pen(Color.White, 2);
 
-            if (!IsSelected)
+            if (!IsSelected) //empty space for ball
             {
-                
+                Brush brush = new SolidBrush(Color.LightGray);
+                Pen pen = new Pen(Color.White, 2);
+
                 g.FillEllipse(brush, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
                 g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
+
+                brush.Dispose();
+                pen.Dispose();
             }
-            else
+            else //already generated ball
             {
                 Brush brushBig = new SolidBrush(Color);
                 Brush brushSmall = new SolidBrush(Color.White);
-
-                FontFamily fontFamilySmall = new FontFamily("Arial");
-                Font fontSmall = new Font(fontFamilySmall, 10, FontStyle.Bold, GraphicsUnit.Pixel);
                 Brush brushTextSmall = new SolidBrush(Color.Black);
+                Pen pen = new Pen(Color.White, 3);
+
+                Font fontSmall = new Font(new FontFamily("Arial"), 10, FontStyle.Bold, GraphicsUnit.Pixel);
 
                 StringFormat stringFormat = new StringFormat();
                 stringFormat.Alignment = StringAlignment.Center;
@@ -74,22 +71,13 @@ namespace LuckySix
                 g.DrawEllipse(pen, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
                 g.FillEllipse(brushBig, Center.X - Radius, Center.Y - Radius, Radius * 2, Radius * 2);
                 g.FillEllipse(brushSmall, Center.X - 10, Center.Y - 10, 10 * 2, 10 * 2);
-                
-                if(Number <= 9)
-                {
-                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X, Center.Y, stringFormat);
-                }
-                else
-                {
-                    g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X, Center.Y, stringFormat);
-                }
+                g.DrawString(Number.ToString(), fontSmall, brushTextSmall, Center.X + 1, Center.Y, stringFormat);
 
                 brushSmall.Dispose();
-                brushTextSmall.Dispose();
                 brushBig.Dispose();
+                brushTextSmall.Dispose();
+                pen.Dispose();
             }
-            brush.Dispose();
-            pen.Dispose();
         }
     }
 }

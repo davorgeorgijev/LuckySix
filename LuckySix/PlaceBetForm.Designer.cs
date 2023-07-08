@@ -41,7 +41,10 @@
             this.startGameBtn = new System.Windows.Forms.Button();
             this.betNud = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBoxHelp = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.betNud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // playNumbersRb
@@ -49,7 +52,7 @@
             this.playNumbersRb.AutoSize = true;
             this.playNumbersRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playNumbersRb.Location = new System.Drawing.Point(88, 48);
-            this.playNumbersRb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playNumbersRb.Margin = new System.Windows.Forms.Padding(2);
             this.playNumbersRb.Name = "playNumbersRb";
             this.playNumbersRb.Size = new System.Drawing.Size(110, 20);
             this.playNumbersRb.TabIndex = 0;
@@ -63,7 +66,7 @@
             this.playColorsRb.AutoSize = true;
             this.playColorsRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playColorsRb.Location = new System.Drawing.Point(322, 48);
-            this.playColorsRb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playColorsRb.Margin = new System.Windows.Forms.Padding(2);
             this.playColorsRb.Name = "playColorsRb";
             this.playColorsRb.Size = new System.Drawing.Size(94, 20);
             this.playColorsRb.TabIndex = 1;
@@ -126,7 +129,7 @@
             "47",
             "48"});
             this.comboBox1.Location = new System.Drawing.Point(22, 88);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(38, 21);
             this.comboBox1.TabIndex = 2;
@@ -186,7 +189,7 @@
             "47",
             "48"});
             this.comboBox2.Location = new System.Drawing.Point(64, 88);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(38, 21);
             this.comboBox2.TabIndex = 3;
@@ -246,7 +249,7 @@
             "47",
             "48"});
             this.comboBox3.Location = new System.Drawing.Point(106, 88);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(38, 21);
             this.comboBox3.TabIndex = 4;
@@ -306,7 +309,7 @@
             "47",
             "48"});
             this.comboBox4.Location = new System.Drawing.Point(148, 88);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(38, 21);
             this.comboBox4.TabIndex = 5;
@@ -366,7 +369,7 @@
             "47",
             "48"});
             this.comboBox5.Location = new System.Drawing.Point(190, 88);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(38, 21);
             this.comboBox5.TabIndex = 6;
@@ -426,7 +429,7 @@
             "47",
             "48"});
             this.comboBox6.Location = new System.Drawing.Point(232, 88);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(38, 21);
             this.comboBox6.TabIndex = 7;
@@ -448,7 +451,7 @@
             "Orange",
             "Black"});
             this.comboBoxColor.Location = new System.Drawing.Point(320, 88);
-            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(98, 21);
             this.comboBoxColor.TabIndex = 8;
@@ -457,7 +460,7 @@
             // 
             this.startGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startGameBtn.Location = new System.Drawing.Point(184, 192);
-            this.startGameBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startGameBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startGameBtn.Name = "startGameBtn";
             this.startGameBtn.Size = new System.Drawing.Size(94, 32);
             this.startGameBtn.TabIndex = 9;
@@ -502,11 +505,36 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Bet";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            // 
+            // textBoxHelp
+            // 
+            this.textBoxHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxHelp.Location = new System.Drawing.Point(16, 40);
+            this.textBoxHelp.Multiline = true;
+            this.textBoxHelp.Name = "textBoxHelp";
+            this.textBoxHelp.Size = new System.Drawing.Size(440, 208);
+            this.textBoxHelp.TabIndex = 14;
+            this.textBoxHelp.Text = resources.GetString("textBoxHelp.Text");
+            this.textBoxHelp.Visible = false;
+            // 
             // PlaceBetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 261);
+            this.Controls.Add(this.textBoxHelp);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.betNud);
             this.Controls.Add(this.startGameBtn);
@@ -521,12 +549,13 @@
             this.Controls.Add(this.playNumbersRb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "PlaceBetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlaceBet";
             ((System.ComponentModel.ISupportInitialize)(this.betNud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,5 +575,7 @@
         private System.Windows.Forms.Button startGameBtn;
         private System.Windows.Forms.NumericUpDown betNud;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxHelp;
     }
 }

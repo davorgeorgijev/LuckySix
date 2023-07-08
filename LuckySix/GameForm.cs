@@ -15,7 +15,7 @@ namespace LuckySix
     {
         public Scene Scene { get; set; }
         public List<int> PlayedNumbers { get; set; }
-        public Color PlayedColor { get; set; }
+        public Color PlayedColor { get; set; } = Color.Gray;
         public Random Random { get; set; }
         public List<int> AlreadyGeneratedNumbers { get; set; }
         public int CounterTicksForShuffling { get; set; }
@@ -38,6 +38,7 @@ namespace LuckySix
                 PlayedColor = placeBetForm.Color;
                 Bet = placeBetForm.Bet;
                 ColorOrNumberPlayingAtm = placeBetForm.ColorOrNumberPlayingAtm;
+
                 Random = new Random();
                 AlreadyGeneratedNumbers = new List<int>();
 
@@ -61,14 +62,19 @@ namespace LuckySix
             FontFamily fontFamily = new FontFamily("Arial");
             Font font = new Font(fontFamily, 16, FontStyle.Bold, GraphicsUnit.Pixel);
             Brush brush = new SolidBrush(Color.White);
+
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            stringFormat.LineAlignment = StringAlignment.Center;
+
             if (ColorOrNumberPlayingAtm) //numbers
             {
                 string numbers = string.Join(", ", PlayedNumbers);
-                e.Graphics.DrawString($"You played the numbers: {numbers}", font, brush, 430, 600);
+                e.Graphics.DrawString($"You played the numbers: {numbers}", font, brush, GeneratingBall.Center.X, GeneratingBall.Center.Y + 270, stringFormat);
             }
             else //color
             {
-                e.Graphics.DrawString($"You played the color: {PlayedColor.Name}", font, new SolidBrush(PlayedColor), 480, 600);
+                e.Graphics.DrawString($"You played the color: {PlayedColor.Name}", font, brush, GeneratingBall.Center.X, GeneratingBall.Center.Y + 270, stringFormat);
             }
 
             brush.Dispose();
@@ -123,30 +129,18 @@ namespace LuckySix
             {
                 CounterTicksForShuffling = 0;
                 timerSufflingBalls.Stop();
+
                 AlreadyGeneratedNumbers.Add(number);
                 Scene.Balls[CounterGeneratedBalls].Number = number;
                 Scene.Balls[CounterGeneratedBalls].Color = GenerateColor(number);
                 Scene.Balls[CounterGeneratedBalls].IsSelected = true;
-                if (ColorOrNumberPlayingAtm) //numbers
+
+                if (PlayedColor == GenerateColor(number) || PlayedNumbers.Contains(number))
                 {
-                    if (PlayedNumbers.Contains(number))
+                    CounterHits++;
+                    if (CounterHits == 6)
                     {
-                        CounterHits++;
-                        if (CounterHits == 6)
-                        {
-                            CashWon = Bet * Scene.Balls[CounterGeneratedBalls].Coefficient;
-                        }
-                    }
-                }
-                else
-                {
-                    if(PlayedColor == GenerateColor(number))
-                    {
-                        CounterHits++;
-                        if (CounterHits == 6)
-                        {
-                            CashWon = Bet * Scene.Balls[CounterGeneratedBalls].Coefficient;
-                        }
+                        CashWon = Bet * Scene.Balls[CounterGeneratedBalls].Coefficient;
                     }
                 }
                 CounterGeneratedBalls++;

@@ -21,47 +21,47 @@ namespace LuckySix
             int y = 40;
             for(int i = 1; i <= 35; i++)
             {
-                if (i <= 5) 
+                if (i <= 5) //upper five 
                 {
                     Balls.Add(new Ball(new Point(x, y), Coefficients[i - 1], "nothing"));
                     x += 60;
-                    if (i == 5) //first ten
+                    if (i == 5) 
                     {
                         x = 50;
                         y = 80;
                     }
                 }
-                else if (i > 5 && i <= 15) 
+                else if (i > 5 && i <= 15)  //left ten
                 {
                     Balls.Add(new Ball(new Point(x, y), Coefficients[i - 1], "left"));
                     y += 60;
-                    if (i == 15) //first five
+                    if (i == 15) 
                     {
                         x = 260;
                         y = 380;
                     }
                 }
-                else if (i > 15 && i <= 20) 
+                else if (i > 15 && i <= 20) //left five
                 {
                     Balls.Add(new Ball(new Point(x, y), Coefficients[i - 1], "left"));
                     y += 60;
-                    if (i == 20) //second five
+                    if (i == 20) 
                     {
                         x = 920;
                         y = 380;
                     }
                 }
-                else if (i > 20 && i <= 25) 
+                else if (i > 20 && i <= 25) //right five
                 {
                     Balls.Add(new Ball(new Point(x, y), Coefficients[i - 1], "right"));
                     y += 60;
-                    if (i == 25) //second ten
+                    if (i == 25) 
                     {
                         x = 1130;
                         y = 80;
                     }
                 }
-                else if (i > 25 && i <= 35) 
+                else if (i > 25 && i <= 35) //right ten
                 {
                     Balls.Add(new Ball(new Point(x, y), Coefficients[i - 1], "right"));
                     y += 60;
