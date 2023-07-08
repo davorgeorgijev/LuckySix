@@ -55,6 +55,8 @@
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GeneratingBall.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="PlaceBetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +69,9 @@
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\LuckySix.GameForm.resources" />
+    <EmbeddedResource Include="obj\Debug\LuckySix.PlaceBetForm.resources" />
+    <EmbeddedResource Include="obj\Debug\LuckySix.Properties.Resources.resources" />
     <EmbeddedResource Include="PlaceBetForm.resx">
       <DependentUpon>PlaceBetForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +85,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\LuckySix.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\LuckySix.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\LuckySix.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\LuckySix.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\LuckySix.csproj.SuggestedBindingRedirects.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,8 +106,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\LuckySix.exe" />
+    <Content Include="bin\Debug\LuckySix.pdb" />
     <Content Include="icon.ico" />
+    <Content Include="obj\Debug\LuckySix.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\LuckySix.exe" />
+    <Content Include="obj\Debug\LuckySix.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="questionmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
