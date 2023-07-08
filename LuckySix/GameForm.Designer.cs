@@ -35,7 +35,7 @@
             // 
             // timerGeneratingBall
             // 
-            this.timerGeneratingBall.Interval = 1500;
+            this.timerGeneratingBall.Interval = 2000;
             this.timerGeneratingBall.Tick += new System.EventHandler(this.timerGeneratingBall_Tick);
             // 
             // timerSufflingBalls
@@ -47,7 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1184, 661);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

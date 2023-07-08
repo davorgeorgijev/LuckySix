@@ -62,15 +62,31 @@ namespace LuckySix
             {
                 Numbers = new List<int>();
                 ColorOrNumberPlayingAtm = true;
-                Numbers.Add(Int32.Parse(comboBox1.Text.ToString()));
-                Numbers.Add(Int32.Parse(comboBox2.Text.ToString()));
-                Numbers.Add(Int32.Parse(comboBox3.Text.ToString()));
-                Numbers.Add(Int32.Parse(comboBox4.Text.ToString()));
-                Numbers.Add(Int32.Parse(comboBox5.Text.ToString()));
-                Numbers.Add(Int32.Parse(comboBox6.Text.ToString()));
-                if (Numbers.Contains(0) || Numbers.Distinct().Count() != 6)
+                bool containsNonPositiveNumberValueFlag = false;
+                foreach (ComboBox comboBox in new[] { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6 }) 
                 {
-                    MessageBox.Show("You have to enter different numbers!", "", MessageBoxButtons.OK);
+                    if (!int.TryParse(comboBox.Text, out _)) 
+                    {
+                        containsNonPositiveNumberValueFlag = true;
+                        break;
+                    }
+                    Numbers.Add(Int32.Parse(comboBox.Text.ToString()));
+                }
+                if (containsNonPositiveNumberValueFlag)
+                {
+                    MessageBox.Show("You have to enter only numbers!", "Error", MessageBoxButtons.OK);
+                }
+                else if (Numbers.Any(num => num < 0))
+                {
+                    MessageBox.Show("You have to enter only positive numbers!", "Error", MessageBoxButtons.OK);
+                }
+                else if (Numbers.Contains(0))
+                {
+                    MessageBox.Show("You have to enter numbers different than 0!", "Error", MessageBoxButtons.OK);
+                }
+                else if (Numbers.Distinct().Count() != 6)
+                {
+                    MessageBox.Show("You have to enter distinct numbers!", "Error", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -80,7 +96,7 @@ namespace LuckySix
             else if (playColorsRb.Checked)
             {
                 ColorOrNumberPlayingAtm = false;
-                if(comboBoxColor.Text == "None")
+                if(comboBoxColor.Text == "")
                 {
                     MessageBox.Show("You have to enter color!", "", MessageBoxButtons.OK);
                 }

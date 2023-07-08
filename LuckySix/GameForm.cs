@@ -44,7 +44,7 @@ namespace LuckySix
             } 
             else
             {
-                Environment.Exit(0);
+                Environment.Exit(0); //case when the player closes the PlaceBetForm
             }          
         }
 
@@ -56,6 +56,19 @@ namespace LuckySix
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Scene.Draw(e.Graphics);
+            FontFamily fontFamily = new FontFamily("Arial");
+            Font font = new Font(fontFamily, 16, FontStyle.Bold, GraphicsUnit.Pixel);
+            Brush brush = new SolidBrush(Color.White);
+            if (ColorOrNumberPlayingAtm) //numbers
+            {
+                string numbers = string.Join(", ", PlayedNumbers);
+                e.Graphics.DrawString($"You played the numbers: {numbers}", font, brush, 430, 600);
+            }
+            else //color
+            {
+                e.Graphics.DrawString($"You played the color: {PlayedColor.Name}", font, new SolidBrush(PlayedColor), 480, 600);
+            }
+            brush.Dispose();
         }
 
         private void timerGeneratingBall_Tick(object sender, EventArgs e)
