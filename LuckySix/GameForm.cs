@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,7 @@ namespace LuckySix
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Scene.Draw(e.Graphics);
+
             FontFamily fontFamily = new FontFamily("Arial");
             Font font = new Font(fontFamily, 16, FontStyle.Bold, GraphicsUnit.Pixel);
             Brush brush = new SolidBrush(Color.White);
@@ -68,6 +70,7 @@ namespace LuckySix
             {
                 e.Graphics.DrawString($"You played the color: {PlayedColor.Name}", font, new SolidBrush(PlayedColor), 480, 600);
             }
+
             brush.Dispose();
         }
 

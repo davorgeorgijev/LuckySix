@@ -80,6 +80,10 @@ namespace LuckySix
                 {
                     MessageBox.Show("You have to enter only positive numbers!", "Error", MessageBoxButtons.OK);
                 }
+                else if (Numbers.Any(num => num > 48))
+                {
+                    MessageBox.Show("You have to enter only numbers in the range of 1 to 48!", "Error", MessageBoxButtons.OK);
+                }
                 else if (Numbers.Contains(0))
                 {
                     MessageBox.Show("You have to enter numbers different than 0!", "Error", MessageBoxButtons.OK);
