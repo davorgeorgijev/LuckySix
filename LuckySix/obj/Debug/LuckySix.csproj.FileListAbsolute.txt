@@ -1,0 +1,12 @@
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\bin\Debug\LuckySix.exe.config
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\bin\Debug\LuckySix.exe
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\bin\Debug\LuckySix.pdb
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.csproj.AssemblyReference.cache
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.csproj.SuggestedBindingRedirects.cache
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.Properties.Resources.resources
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.csproj.GenerateResource.cache
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.csproj.CoreCompileInputs.cache
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.exe
+C:\Users\marij\Source\Repos\LuckySix\LuckySix\obj\Debug\LuckySix.pdb
+C:\Users\marij\source\repos\LuckySix\LuckySix\obj\Debug\LuckySix.GameForm.resources
+C:\Users\marij\source\repos\LuckySix\LuckySix\obj\Debug\LuckySix.PlaceBetForm.resources
